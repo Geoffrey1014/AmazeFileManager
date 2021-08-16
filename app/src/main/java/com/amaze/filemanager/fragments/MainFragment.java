@@ -720,6 +720,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                     getMainActivity().setPaste(pasteHelper);
 
                     mode.finish();
+                    Log.i("Themis", "onActionItemClicked: step 2: onActionItemClicked 函数中，cut ");
                     return true;
                 }
                 case R.id.compress:

@@ -12,6 +12,7 @@ import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,6 +100,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int grey_color, accentColor, iconSkinColor, goBackColor, videoColor, audioColor,
             pdfColor, codeColor, textColor, archiveColor, genericColor, apkColor;
     private int offset = 0;
+    private int lastItermLongClickPosition = -1;
 
     public RecyclerAdapter(PreferenceActivity preferenceActivity, MainFragment m,
                            UtilitiesProvider utilsProvider, SharedPreferences sharedPrefs,
@@ -506,6 +508,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
                 holder.rl.setOnClickListener(v -> {
+                    if(lastItermLongClickPosition == vholder.getAdapterPosition()){
+                        Log.i("Themis", "onBindViewHolder: step 3: ImageViewList Click 的item的 position is :" + vholder.getAdapterPosition());
+                        lastItermLongClickPosition = -1;
+                    }
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageView);
                 });
@@ -521,6 +527,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 holder.rl.setOnLongClickListener(p1 -> {
                     // check if the item on which action is performed is not the first {goback} item
                     if (!isBackButton) {
+                        Log.i("Themis", "onBindViewHolder: step 1: 对 ImageViewList 的iterm 进行 LongClick，item的position is：" + vholder.getAdapterPosition());
+                        lastItermLongClickPosition = vholder.getAdapterPosition();
                         toggleChecked(vholder.getAdapterPosition(), holder.checkImageView);
                     }
 
@@ -677,12 +685,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 holder.checkImageViewGrid.setColorFilter(accentColor);
                 holder.rl.setOnClickListener(v -> {
+                    if(lastItermLongClickPosition == vholder.getAdapterPosition()){
+                        Log.i("Themis", "onBindViewHolder: step 3: ImageViewGrid Click 的item的 position is :" + vholder.getAdapterPosition());
+                        lastItermLongClickPosition = -1;
+                    }
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageViewGrid);
                 });
 
                 holder.rl.setOnLongClickListener(p1 -> {
                     if (!isBackButton) {
+                        Log.i("Themis", "onBindViewHolder: step 1: ImageViewGrid LongClick 的item的 position is :" + vholder.getAdapterPosition());
+                        lastItermLongClickPosition = vholder.getAdapterPosition();
                         toggleChecked(vholder.getAdapterPosition(), holder.checkImageViewGrid);
                     }
                     return true;

@@ -56,6 +56,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -150,7 +151,7 @@ import static com.amaze.filemanager.fragments.preference_fragments.PreferencesCo
 public class MainActivity extends PermissionsActivity implements SmbConnectionListener,
         DataChangeListener, BookmarkCallback, SearchWorkerFragment.HelperCallbacks,
         CloudConnectionCallbacks, LoaderManager.LoaderCallbacks<Cursor> {
-
+    private int lastItermLongClickPosition = -1;
     public static final Pattern DIR_SEPARATOR = Pattern.compile("/");
     public static final String TAG_ASYNC_HELPER = "async_helper";
 
@@ -1046,6 +1047,7 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
                 boolean move = pasteHelper.operation == PasteHelper.OPERATION_CUT;
                 new PrepareCopyTask(ma, path, move, mainActivity, isRootExplorer())
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
+                Log.i("Themis", "onOptionsItemSelected: step 4: past ,但是没有判断是否再同一个 dir下");
                 pasteHelper = null;
                 invalidatePasteButton(item);
                 break;

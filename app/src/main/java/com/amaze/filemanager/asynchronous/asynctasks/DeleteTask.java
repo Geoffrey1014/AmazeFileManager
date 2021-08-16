@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.provider.DocumentFile;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.amaze.filemanager.R;
@@ -172,7 +173,14 @@ public class DeleteTask extends AsyncTask<ArrayList<HybridFileParcelable>, Strin
     public void onPostExecute(Boolean wasDeleted) {
 
         Intent intent = new Intent(MainActivity.KEY_INTENT_LOAD_LIST);
-        String path = files.get(0).getParent(cd);
+        String path;
+        try {
+            path = files.get(0).getParent(cd);
+        }catch (IndexOutOfBoundsException e){
+            Log.i("Themis", "onPostExecute: step last: IndexOutOfBoundsException");
+            throw e;
+        }
+
         intent.putExtra(MainActivity.KEY_INTENT_LOAD_LIST_FILE, path);
         cd.sendBroadcast(intent);
 
