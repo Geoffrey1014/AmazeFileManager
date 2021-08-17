@@ -63,6 +63,7 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -1038,6 +1039,7 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
                 }
                 break;
             case R.id.search:
+                Log.i("Themis", "onOptionsItemSelected: step 1: click search button ");
                 getAppbar().getSearchView().revealSearchView();
                 break;
         }

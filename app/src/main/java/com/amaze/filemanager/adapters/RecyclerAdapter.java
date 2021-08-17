@@ -34,6 +34,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -528,6 +529,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
                 holder.rl.setOnClickListener(v -> {
+                    Log.i("Themis", "onBindViewHolder: 每次点击都会触发这里，可以区分点击的是第几个iterm");
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageView);
                 });

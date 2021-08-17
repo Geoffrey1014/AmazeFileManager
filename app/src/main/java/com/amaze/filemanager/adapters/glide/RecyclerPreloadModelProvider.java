@@ -1,6 +1,8 @@
 package com.amaze.filemanager.adapters.glide;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -33,7 +35,13 @@ public class RecyclerPreloadModelProvider implements ListPreloader.PreloadModelP
     @Override
     @NonNull
     public List<IconDataParcelable> getPreloadItems(int position) {
-        IconDataParcelable iconData = urisToLoad.get(position);
+        IconDataParcelable iconData;
+        try{
+            iconData = urisToLoad.get(position);
+        }catch (IndexOutOfBoundsException e){
+            Log.i("Themis", "getPreloadItems: step last : IndexOutOfBoundsException ");
+            throw e;
+        }
         if (iconData == null) return Collections.emptyList();
         return Collections.singletonList(iconData);
     }

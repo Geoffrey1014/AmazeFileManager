@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -53,6 +54,10 @@ public class SearchView {
 
         searchViewEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                if(searchViewEditText.getText().toString().equals("android")){
+                    Log.i("Themis", "SearchView: step 2 : searching string is : " + searchViewEditText.getText().toString() );
+                }
+
                 searchListener.onSearch(searchViewEditText.getText().toString());
                 appbar.getSearchView().hideSearchView();
                 return true;
