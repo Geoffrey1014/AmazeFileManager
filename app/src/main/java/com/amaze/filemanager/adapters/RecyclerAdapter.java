@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -415,6 +416,7 @@ public class RecyclerAdapter extends RecyclerArrayAdapter<String, RecyclerView.V
 
                     public boolean onLongClick(View p1) {
                         // check if the item on which action is performed is not the first {goback} item
+                        Log.i("Themis", "onLongClick: step 1: 长按一个文件夹");
                         if (!isBackButton) {
                             toggleChecked(vholder.getAdapterPosition(), holder.checkImageView);
                         }

@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,6 +124,9 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
             view.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View p1) {
+                    if(position == 1){
+                        Log.i("Themis", "DrawerAdapter onClick: step 4: 点击第二个view");
+                    }
                     EntryItem item = (EntryItem) getItem(position);
 
                     if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
