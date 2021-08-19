@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
@@ -95,6 +96,7 @@ public class ItemPopupMenu extends PopupMenu implements PopupMenu.OnMenuItemClic
                 mainFragment.rename(rowItem.generateBaseFile());
                 return true;
             case R.id.cpy:
+                Log.i("Themis", "onMenuItemClick: step 2: 复制");
                 mainFragment.getMainActivity().MOVE_PATH = null;
                 ArrayList<BaseFile> copies = new ArrayList<>();
                 copies.add(rowItem.generateBaseFile());

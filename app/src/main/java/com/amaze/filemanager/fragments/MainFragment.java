@@ -729,6 +729,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
                     mode.finish();
                     return true;
                 case R.id.cpy:
+                    Log.i("Themis", "onActionItemClicked: step 2: 复制");
                     getMainActivity().MOVE_PATH = null;
                     ArrayList<BaseFile> copies = new ArrayList<>();
                     for (int i2 = 0; i2 < checkedItems.size(); i2++) {
