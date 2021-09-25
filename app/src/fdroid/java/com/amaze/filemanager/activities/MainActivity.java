@@ -1025,7 +1025,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
         if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
-            Log.i("Themis", "onOptionsItemSelected: step 3 : 打开左侧抽屉");
+            Log.i("Themis", "MainActivity onOptionsItemSelected: step 3 : open the left drawer");
             return true;
         }
         // Handle action buttons
@@ -1152,7 +1152,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
                 COPY_PATH = null;
                 MOVE_PATH = null;
-                Log.i("Themis", "onOptionsItemSelected: step 5: 黏贴");
+                Log.i("Themis", "MainActivity onOptionsItemSelected: step 5: paste");
                 invalidatePasteButton(item);
                 break;
             case R.id.extract:
@@ -1576,7 +1576,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                         try{
                             intent1.putExtra(CopyService.TAG_COPY_SOURCES, oparrayList.get(i));
                         }catch (NullPointerException e){
-                            Log.i("Themis", "onActivityResult: step last: crash");
+                            Log.i("Themis", "MainActivity onActivityResult: BOMB! Crash! : NullPointerException");
                         }
 
                         intent1.putExtra(CopyService.TAG_COPY_TARGET, oppatheList.get(i));
