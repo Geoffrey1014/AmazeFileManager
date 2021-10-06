@@ -529,7 +529,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
                 holder.rl.setOnClickListener(v -> {
-                    Log.i("Themis", "onBindViewHolder: 每次点击都会触发这里，可以区分点击的是第几个iterm");
+//                    Log.i("Themis", "onBindViewHolder: 每次点击都会触发这里，可以区分点击的是第几个iterm");
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageView);
                 });

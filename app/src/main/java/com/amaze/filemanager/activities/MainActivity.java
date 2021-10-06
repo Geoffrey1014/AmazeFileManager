@@ -1039,7 +1039,7 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
                 }
                 break;
             case R.id.search:
-                Log.i("Themis", "onOptionsItemSelected: step 1: click search button ");
+                Log.i("Themis", "Event 1: click search button ");
                 getAppbar().getSearchView().revealSearchView();
                 break;
         }

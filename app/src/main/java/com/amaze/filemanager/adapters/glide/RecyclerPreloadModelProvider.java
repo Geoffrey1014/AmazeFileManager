@@ -39,7 +39,7 @@ public class RecyclerPreloadModelProvider implements ListPreloader.PreloadModelP
         try{
             iconData = urisToLoad.get(position);
         }catch (IndexOutOfBoundsException e){
-            Log.i("Themis", "getPreloadItems: step last : IndexOutOfBoundsException ");
+            Log.i("Themis", "BOMB! Crash! : IndexOutOfBoundsException ");
             throw e;
         }
         if (iconData == null) return Collections.emptyList();

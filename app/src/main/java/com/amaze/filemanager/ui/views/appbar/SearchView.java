@@ -54,9 +54,7 @@ public class SearchView {
 
         searchViewEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                if(searchViewEditText.getText().toString().equals("android")){
-                    Log.i("Themis", "SearchView: step 2 : searching string is : " + searchViewEditText.getText().toString() );
-                }
+                Log.i("Themis", "Event 2: searching a string : " + searchViewEditText.getText() );
 
                 searchListener.onSearch(searchViewEditText.getText().toString());
                 appbar.getSearchView().hideSearchView();
