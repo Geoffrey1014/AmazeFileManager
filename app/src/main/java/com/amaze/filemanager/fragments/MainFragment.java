@@ -711,8 +711,10 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                 case R.id.cpy:
                 case R.id.cut: {
                     HybridFileParcelable[] copies = new HybridFileParcelable[checkedItems.size()];
+                    String cutItems = "";
                     for (int i = 0; i < checkedItems.size(); i++) {
                         copies[i] = checkedItems.get(i).generateBaseFile();
+                        cutItems += copies[i].getPath() + ", ";
                     }
                     int op = item.getItemId() == R.id.cpy? PasteHelper.OPERATION_COPY:PasteHelper.OPERATION_CUT;
 
@@ -720,7 +722,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                     getMainActivity().setPaste(pasteHelper);
 
                     mode.finish();
-                    Log.i("Themis", "onActionItemClicked: step 2: onActionItemClicked 函数中，cut ");
+                    Log.i("Themis", "Event 1: cut: "+ cutItems);
                     return true;
                 }
                 case R.id.compress:

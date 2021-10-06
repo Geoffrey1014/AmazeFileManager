@@ -1047,7 +1047,7 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
                 boolean move = pasteHelper.operation == PasteHelper.OPERATION_CUT;
                 new PrepareCopyTask(ma, path, move, mainActivity, isRootExplorer())
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
-                Log.i("Themis", "onOptionsItemSelected: step 4: past ,但是没有判断是否再同一个 dir下");
+                Log.i("Themis", "Event 2: past: " + path);
                 pasteHelper = null;
                 invalidatePasteButton(item);
                 break;

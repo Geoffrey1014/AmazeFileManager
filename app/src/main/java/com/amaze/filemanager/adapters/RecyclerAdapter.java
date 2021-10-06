@@ -508,10 +508,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
                 holder.rl.setOnClickListener(v -> {
-                    if(lastItermLongClickPosition == vholder.getAdapterPosition()){
-                        Log.i("Themis", "onBindViewHolder: step 3: ImageViewList Click 的item的 position is :" + vholder.getAdapterPosition());
-                        lastItermLongClickPosition = -1;
-                    }
+//                    Log.i("Themis", "Event 2:  click an item:" + rowItem.title);
+
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageView);
                 });
@@ -527,8 +525,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 holder.rl.setOnLongClickListener(p1 -> {
                     // check if the item on which action is performed is not the first {goback} item
                     if (!isBackButton) {
-                        Log.i("Themis", "onBindViewHolder: step 1: 对 ImageViewList 的iterm 进行 LongClick，item的position is：" + vholder.getAdapterPosition());
-                        lastItermLongClickPosition = vholder.getAdapterPosition();
+//                        Log.i("Themis", "Event 1: long click an item:" + rowItem.title);
+
                         toggleChecked(vholder.getAdapterPosition(), holder.checkImageView);
                     }
 
@@ -685,18 +683,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                 holder.checkImageViewGrid.setColorFilter(accentColor);
                 holder.rl.setOnClickListener(v -> {
-                    if(lastItermLongClickPosition == vholder.getAdapterPosition()){
-                        Log.i("Themis", "onBindViewHolder: step 3: ImageViewGrid Click 的item的 position is :" + vholder.getAdapterPosition());
-                        lastItermLongClickPosition = -1;
-                    }
+//                    Log.i("Themis", "Event 2: click an item:" + rowItem.title);
                     mainFrag.onListItemClicked(isBackButton, vholder.getAdapterPosition(), rowItem,
                             holder.checkImageViewGrid);
                 });
 
                 holder.rl.setOnLongClickListener(p1 -> {
                     if (!isBackButton) {
-                        Log.i("Themis", "onBindViewHolder: step 1: ImageViewGrid LongClick 的item的 position is :" + vholder.getAdapterPosition());
-                        lastItermLongClickPosition = vholder.getAdapterPosition();
+//                        Log.i("Themis", "onBindViewHolder: step 1: ImageViewGrid LongClick 的item的 position is :" + vholder.getAdapterPosition());
+
                         toggleChecked(vholder.getAdapterPosition(), holder.checkImageViewGrid);
                     }
                     return true;

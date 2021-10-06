@@ -177,7 +177,7 @@ public class DeleteTask extends AsyncTask<ArrayList<HybridFileParcelable>, Strin
         try {
             path = files.get(0).getParent(cd);
         }catch (IndexOutOfBoundsException e){
-            Log.i("Themis", "onPostExecute: step last: IndexOutOfBoundsException");
+            Log.i("Themis", "BOMB! Crash!: IndexOutOfBoundsException");
             throw e;
         }
 

@@ -89,18 +89,18 @@
     </RelativeLayout>
 
     <ImageButton
+        android:id="@+id/properties"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/properties"
-        android:background="@drawable/ripple"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:padding="8dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/ripple"
         android:clickable="true"
-        android:src="@drawable/ic_more_vert_black_48dp"/>
+        android:padding="8dp"
+        android:src="@drawable/ic_more_vert_black_48dp" />
 
     <RelativeLayout
         android:layout_toRightOf="@id/icon_frame_parent"
