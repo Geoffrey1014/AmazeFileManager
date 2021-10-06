@@ -416,7 +416,7 @@ public class RecyclerAdapter extends RecyclerArrayAdapter<String, RecyclerView.V
 
                     public boolean onLongClick(View p1) {
                         // check if the item on which action is performed is not the first {goback} item
-                        Log.i("Themis", "RecyclerAdapter onLongClick: step 1: long click a directory or file");
+                        Log.i("Themis", "Event 1: long click a directory or file: "+ rowItem.getTitle());
                         if (!isBackButton) {
                             toggleChecked(vholder.getAdapterPosition(), holder.checkImageView);
                         }
