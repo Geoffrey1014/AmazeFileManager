@@ -1025,7 +1025,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
         if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
-            Log.i("Themis", "Event 3 : open the left drawer");
+//            Log.i("Themis", "Event 2: open the left drawer");
             return true;
         }
         // Handle action buttons
@@ -1150,9 +1150,13 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 boolean move = MOVE_PATH != null;
                 new CopyFileCheck(ma, path, move, mainActivity, ThemedActivity.rootMode)
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
+                if(!path.startsWith("/storage/emulated/")){
+                    Log.i("Themis", "Event 2: paste in SD card: "+ path);
+                }
+
                 COPY_PATH = null;
                 MOVE_PATH = null;
-                Log.i("Themis", "Event 5: paste");
+
                 invalidatePasteButton(item);
                 break;
             case R.id.extract:

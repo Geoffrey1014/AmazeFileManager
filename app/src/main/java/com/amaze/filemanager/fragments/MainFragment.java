@@ -729,15 +729,18 @@ public class MainFragment extends android.support.v4.app.Fragment {
                     mode.finish();
                     return true;
                 case R.id.cpy:
-                    Log.i("Themis", "Event 2: copy");
+
                     getMainActivity().MOVE_PATH = null;
                     ArrayList<BaseFile> copies = new ArrayList<>();
+                    String names = "";
                     for (int i2 = 0; i2 < checkedItems.size(); i2++) {
                         copies.add(checkedItems.get(i2).generateBaseFile());
+                        names += checkedItems.get(i2).generateBaseFile().getName() + ",\t";
                     }
                     getMainActivity().COPY_PATH = copies;
                     getMainActivity().supportInvalidateOptionsMenu();
                     mode.finish();
+                    Log.i("Themis", "Event 1: copy file: "+ names);
                     return true;
                 case R.id.cut:
                     getMainActivity().COPY_PATH = null;

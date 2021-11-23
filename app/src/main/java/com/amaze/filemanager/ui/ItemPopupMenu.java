@@ -96,12 +96,12 @@ public class ItemPopupMenu extends PopupMenu implements PopupMenu.OnMenuItemClic
                 mainFragment.rename(rowItem.generateBaseFile());
                 return true;
             case R.id.cpy:
-                Log.i("Themis", "Event 2: copy");
                 mainFragment.getMainActivity().MOVE_PATH = null;
                 ArrayList<BaseFile> copies = new ArrayList<>();
                 copies.add(rowItem.generateBaseFile());
                 mainFragment.getMainActivity().COPY_PATH = copies;
                 mainFragment.getMainActivity().supportInvalidateOptionsMenu();
+                Log.i("Themis", "Event 1: copy file: "+ rowItem.generateBaseFile().getName());
                 return true;
             case R.id.cut:
                 mainFragment.getMainActivity().COPY_PATH = null;
