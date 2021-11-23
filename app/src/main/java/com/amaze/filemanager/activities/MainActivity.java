@@ -1047,7 +1047,10 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
                 boolean move = pasteHelper.operation == PasteHelper.OPERATION_CUT;
                 new PrepareCopyTask(ma, path, move, mainActivity, isRootExplorer())
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
-                Log.i("Themis", "Event 2: past: " + path);
+                if(arrayList.size() == 1 && arrayList.get(0).getPath().equals(path)){
+                    Log.i("Themis", "Event 2: pasted in the same directory of the cut directory: " + path );
+                }
+
                 pasteHelper = null;
                 invalidatePasteButton(item);
                 break;
