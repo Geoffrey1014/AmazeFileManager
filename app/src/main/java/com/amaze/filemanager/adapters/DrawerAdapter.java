@@ -124,9 +124,9 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
             view.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View p1) {
-                    if(position == 1){
-                        Log.i("Themis", "Event 4: click the second iterm in the drawer");
-                    }
+//                    if(position == 1){
+//                        Log.i("Themis", "Event 3: click the second iterm in the drawer");
+//                    }
                     EntryItem item = (EntryItem) getItem(position);
 
                     if (dataUtils.containsBooks(new String[]{item.getTitle(), item.getPath()}) != -1) {
