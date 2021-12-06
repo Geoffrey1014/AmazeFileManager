@@ -101,10 +101,17 @@ public class ItemPopupMenu extends PopupMenu implements PopupMenu.OnMenuItemClic
                 mainFragment.rename(rowItem.generateBaseFile());
                 return true;
             case R.id.cpy:
+            {
+                int op = item.getItemId() == R.id.cpy? PasteHelper.OPERATION_COPY:PasteHelper.OPERATION_CUT;
+                PasteHelper pasteHelper = new PasteHelper(op, new HybridFileParcelable[]{rowItem.generateBaseFile()});
+                Log.i("Themis", "Event 3: Copy: " + rowItem.desc);
+                mainFragment.getMainActivity().setPaste(pasteHelper);
+                return true;
+            }
             case R.id.cut: {
                 int op = item.getItemId() == R.id.cpy? PasteHelper.OPERATION_COPY:PasteHelper.OPERATION_CUT;
                 PasteHelper pasteHelper = new PasteHelper(op, new HybridFileParcelable[]{rowItem.generateBaseFile()});
-                Log.i("Themis", "Event 1: cut: " + rowItem.desc);
+                Log.i("Themis", "Event 1: Cut: " + rowItem.desc);
                 mainFragment.getMainActivity().setPaste(pasteHelper);
                 return true;
             }

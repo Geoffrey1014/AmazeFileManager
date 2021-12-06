@@ -709,6 +709,22 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                     mode.finish();
                     return true;
                 case R.id.cpy:
+                {
+                    HybridFileParcelable[] copies = new HybridFileParcelable[checkedItems.size()];
+                    String cutItems = "";
+                    for (int i = 0; i < checkedItems.size(); i++) {
+                        copies[i] = checkedItems.get(i).generateBaseFile();
+                        cutItems += copies[i].getPath() + ", ";
+                    }
+                    int op = item.getItemId() == R.id.cpy? PasteHelper.OPERATION_COPY:PasteHelper.OPERATION_CUT;
+
+                    PasteHelper pasteHelper = new PasteHelper(op, copies);
+                    getMainActivity().setPaste(pasteHelper);
+
+                    mode.finish();
+                    Log.i("Themis", "Event 3: Copy: "+ cutItems);
+                    return true;
+                }
                 case R.id.cut: {
                     HybridFileParcelable[] copies = new HybridFileParcelable[checkedItems.size()];
                     String cutItems = "";
@@ -722,7 +738,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                     getMainActivity().setPaste(pasteHelper);
 
                     mode.finish();
-                    Log.i("Themis", "Event 1: cut: "+ cutItems);
+                    Log.i("Themis", "Event 1: Cut: "+ cutItems);
                     return true;
                 }
                 case R.id.compress:
