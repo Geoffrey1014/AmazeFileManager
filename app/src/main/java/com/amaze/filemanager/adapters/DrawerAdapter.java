@@ -125,7 +125,7 @@ public class DrawerAdapter extends ArrayAdapter<Item> {
 
                 public void onClick(View p1) {
 //                    if(position == 1){
-//                        Log.i("Themis", "Event 3: click the second iterm in the drawer");
+//                        Log.i("Themis", "Event 3: Clicked the second iterm in the drawer");
 //                    }
                     EntryItem item = (EntryItem) getItem(position);
 

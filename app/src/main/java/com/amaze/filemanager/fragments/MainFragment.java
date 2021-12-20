@@ -740,7 +740,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
                     getMainActivity().COPY_PATH = copies;
                     getMainActivity().supportInvalidateOptionsMenu();
                     mode.finish();
-                    Log.i("Themis", "Event 1: copy file: "+ names);
+                    Log.i("Themis", "Event 1: Copied file: "+ names);
                     return true;
                 case R.id.cut:
                     getMainActivity().COPY_PATH = null;

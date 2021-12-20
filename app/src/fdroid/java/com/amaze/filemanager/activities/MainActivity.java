@@ -1150,9 +1150,8 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                 boolean move = MOVE_PATH != null;
                 new CopyFileCheck(ma, path, move, mainActivity, ThemedActivity.rootMode)
                         .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, arrayList);
-                if(!path.startsWith("/storage/emulated/")){
-                    Log.i("Themis", "Event 2: paste in SD card: "+ path);
-                }
+
+                Log.i("Themis", "Event 2: Pasted in path: "+ path);
 
                 COPY_PATH = null;
                 MOVE_PATH = null;
@@ -1580,6 +1579,7 @@ public class MainActivity extends ThemedActivity implements OnRequestPermissions
                         try{
                             intent1.putExtra(CopyService.TAG_COPY_SOURCES, oparrayList.get(i));
                         }catch (NullPointerException e){
+                            Log.i("Themis", "Event 4: Pasted a file in SD card and gave a permission");
                             Log.i("Themis", "BOMB! Crash! : NullPointerException");
                         }
 

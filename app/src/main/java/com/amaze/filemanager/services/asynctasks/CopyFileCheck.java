@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -277,6 +278,8 @@ public class CopyFileCheck extends AsyncTask<ArrayList<BaseFile>, String, CopyFi
                 mainActivity.oparrayList = null;
                 mainActivity.operation = move ? DataUtils.MOVE : DataUtils.COPY;
                 mainActivity.oppatheList = paths;
+                Log.i("Themis", "Event 3: Pasted in SD card and ask for a permission: "+ path);
+
             } else {
                 if (!move) {
                     for (int i = 0; i < filesToCopyPerFolder.size(); i++) {
