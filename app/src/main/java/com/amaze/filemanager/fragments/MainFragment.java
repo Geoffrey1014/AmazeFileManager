@@ -722,7 +722,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements Bot
                     getMainActivity().setPaste(pasteHelper);
 
                     mode.finish();
-                    Log.i("Themis", "Event 3: Copy: "+ cutItems);
+//                    Log.i("Themis", "Event 3: Copied: "+ cutItems);
                     return true;
                 }
                 case R.id.cut: {

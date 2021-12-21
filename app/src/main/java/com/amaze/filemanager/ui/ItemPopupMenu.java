@@ -104,7 +104,7 @@ public class ItemPopupMenu extends PopupMenu implements PopupMenu.OnMenuItemClic
             {
                 int op = item.getItemId() == R.id.cpy? PasteHelper.OPERATION_COPY:PasteHelper.OPERATION_CUT;
                 PasteHelper pasteHelper = new PasteHelper(op, new HybridFileParcelable[]{rowItem.generateBaseFile()});
-                Log.i("Themis", "Event 3: Copy: " + rowItem.desc);
+//                Log.i("Themis", "Event 3: Copied: " + rowItem.desc);
                 mainFragment.getMainActivity().setPaste(pasteHelper);
                 return true;
             }

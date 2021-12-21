@@ -171,12 +171,12 @@ public class DeleteTask extends AsyncTask<ArrayList<HybridFileParcelable>, Strin
 
     @Override
     public void onPostExecute(Boolean wasDeleted) {
-
         Intent intent = new Intent(MainActivity.KEY_INTENT_LOAD_LIST);
         String path;
         try {
             path = files.get(0).getParent(cd);
         }catch (IndexOutOfBoundsException e){
+            Log.i("Themis", "Event 3: Pasted a cut folder into itself");
             Log.i("Themis", "BOMB! Crash!: IndexOutOfBoundsException");
             throw e;
         }
