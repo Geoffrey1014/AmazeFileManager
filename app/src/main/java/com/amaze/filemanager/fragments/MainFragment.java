@@ -1605,8 +1605,16 @@ public class MainFragment extends Fragment implements BottomBarButtonPath {
         getMainActivity().getAppbar().getBottomBar().setFullPathText(getString(R.string.searching, query));
     }
 
+    /**
+     *Themis-#1837
+     * add this function for getting the number of searching
+     */
+    public int addSearchResultReturnCount(HybridFileParcelable a, String query) {
+        addSearchResult(a,query);
+        return adapter.getItemCount();
+    }
 
-    // adds search results based on result boolean. If false, the adapter is initialised with initial
+        // adds search results based on result boolean. If false, the adapter is initialised with initial
     // values, if true, new values are added to the adapter.
     public void addSearchResult(HybridFileParcelable a, String query) {
         if (listView != null) {

@@ -53,7 +53,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.StringRes;
@@ -1783,7 +1782,8 @@ public class MainActivity extends PermissionsActivity implements SmbConnectionLi
 
     @Override
     public void onProgressUpdate(HybridFileParcelable val , String query) {
-        mainFragment.addSearchResult(val,query);
+        int count = mainFragment.addSearchResultReturnCount(val,query);
+        Log.i("Themis", "Event 3: Successfully searched many items and the count is: " + count);
     }
 
     @Override

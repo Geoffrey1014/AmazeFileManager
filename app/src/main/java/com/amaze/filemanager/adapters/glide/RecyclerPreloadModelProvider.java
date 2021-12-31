@@ -36,12 +36,15 @@ public class RecyclerPreloadModelProvider implements ListPreloader.PreloadModelP
     @NonNull
     public List<IconDataParcelable> getPreloadItems(int position) {
         IconDataParcelable iconData;
+        /** Themis-#1837 */
         try{
             iconData = urisToLoad.get(position);
         }catch (IndexOutOfBoundsException e){
-            Log.i("Themis", "BOMB! Crash! : IndexOutOfBoundsException ");
+            Log.i("Themis", "Crash!: IndexOutOfBoundsException ");
             throw e;
         }
+        /** Themis-#1837 */
+
         if (iconData == null) return Collections.emptyList();
         return Collections.singletonList(iconData);
     }
